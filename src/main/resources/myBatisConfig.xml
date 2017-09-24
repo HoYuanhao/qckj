@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+	<configuration>
+	<typeAliases>
+	<typeAlias alias="Admin" type="com.qckj.model.Admin"/>
+	<typeAlias alias="AdminBase" type="com.qckj.model.AdminBase"/>
+	<typeAlias alias="Items" type="com.qckj.model.Items"/>
+	<typeAlias alias="ItemsJoiner" type="com.qckj.model.ItemsJoiner"/>
+	<typeAlias alias="MoneyBase" type="com.qckj.model.MoneyBase"/>
+	<typeAlias alias="MoneyRecord" type="com.qckj.model.MoneyRecord"/>
+	<typeAlias alias="UserAttendance" type="com.qckj.model.UserAttendance"/>
+	<typeAlias alias="UserAuthentication" type="com.qckj.model.UserAuthentication"/>
+	<typeAlias alias="UserBase" type="com.qckj.model.UserBase"/>
+	<typeAlias alias="UserBaseVo" type="com.qckj.model.UserBaseVo"/>
+	<typeAlias alias="ItemsCustom" type="com.qckj.model.ItemsCustom"/>
+	<typeAlias alias="ItemsJoinerVo" type="com.qckj.model.ItemsJoinerVo"/>
+	</typeAliases>
+
+</configuration>	
