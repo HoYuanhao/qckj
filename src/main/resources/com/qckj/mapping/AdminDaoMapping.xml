@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qckj.dao.AdminDao">
+
+	<!-- 添加新管理员 -->
+	<insert id="addAdmin" parameterType="Admin">
+		INSERT into admin (id,username,password)
+		VALUES(#{id},#{username},#{password});
+	</insert>
+
+	<select id="getAdminById" parameterType="String" resultType="Admin">
+		select * from admin where id =#{id};
+	</select>
+
+<delete id="reduceAdminById" parameterType="String">
+delete form admin where id =#{id};
+</delete>
+<!--更新管理员基本信息 -->
+<update id="updateAdminBase" parameterType="AdminBase">
+update admin_base set name =#{name},number=#{number},gender=#{gender},phone=${phone},permission=${permission},other=#{other} where id=#{id};
+</update>
+<select id="getAdminBaseById" parameterType="String" resultType="adminBase">
+select * from admin_base where id=#{id};
+</select>
+<select id="getPwdByUsername" resultType="Admin">
+select * from admin where username=#{username};
+</select>
+<select id="checkAdminByUserName" parameterType="String" resultType="Int">
+select count(*) from admin where username=#{username};
+</select>
+</mapper>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qckj.dao.MoneyDao">
+<update id="updateMoney" parameterType="MoneyBase">
+update money_base set money=#{money},time=#{time} where id=1;
+</update>
+<insert id="setMoneyRecord" parameterType="MoneyRecord">
+insert into money_record(record,operation,time,money,record_time,balance) 
+values(#{record},#{operation},#{time},#{money},#{record_time},#{balance});
+</insert>
+<select id="getMoney" parameterType="String" resultType="Integer">
+select money from money_base where id=#{id};
+</select>
+<select id="getMoneyRecord" parameterType="String" resultType="MoneyRecord">
+select * from money_record where time>#{time}; 
+</select>
+</mapper>
