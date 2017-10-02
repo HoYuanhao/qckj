@@ -10,18 +10,18 @@
         http://www.springframework.org/schema/aop/spring-aop.xsd
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
-	<!-- <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor"> 
-		<property name="securityManager" ref="securityManager" /> </bean> -->
-	<!-- 该文件上传的视图解析器的id必须配，而且id的值是multipartResolver -->
-	<bean id="multipartResolver"
-		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<property name="maxUploadSize" value="104857600" />
-		<property name="maxInMemorySize" value="4096" />
-	</bean> 
-
-	<context:component-scan base-package="com.qckj.controller*"></context:component-scan>
-	
-	<!-- 视图解析器 -->
+	<!-- 
+	<bean
+		class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+		<property name="securityManager" ref="securityManager" />
+	</bean>
+ 	-->
+<context:component-scan base-package="com.qcit.controller*"></context:component-scan>
+<!-- 该文件上传的视图解析器的id必须配，而且id的值是multipartResolver -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+      <property name="maxUploadSize" value="104857600"/>
+        <property name="maxInMemorySize" value="4096"/>
+   </bean>
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="viewClass"
@@ -29,22 +29,24 @@
 		<property name="prefix" value="/WEB-INF/views/"></property>
 		<property name="suffix" value=".jsp"></property>
 	</bean>
-	
-	 <mvc:interceptors>    
-    <mvc:interceptor>  
-        <mvc:mapping path="/**"/> 
- 
-        <bean class="com.qckj.interceptor.LoginInterceptor"/>   
-    </mvc:interceptor>  
-</mvc:interceptors>   
-	<!-- 使用默认的适配器和映射器 -->
+	<!-- 使用默认适配器以及映射器 -->
 	<mvc:annotation-driven />
-	<!-- <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" 
-		p:messageConverters-ref="messageConverters"> </bean> <util:list id="messageConverters"> 
-		<bean class="org.springframework.http.converter.BufferedImageHttpMessageConverter" 
-		/> <bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter" 
-		/> <bean class="org.springframework.http.converter.StringHttpMessageConverter" 
-		/> <bean class="org.springframework.http.converter.xml.XmlAwareFormHttpMessageConverter" 
-		/> <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" 
-		/> </util:list> -->
+<!--
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"
+		p:messageConverters-ref="messageConverters">
+
+	</bean>
+	<util:list id="messageConverters">
+		<bean
+			class="org.springframework.http.converter.BufferedImageHttpMessageConverter" />
+		<bean
+			class="org.springframework.http.converter.ByteArrayHttpMessageConverter" />
+		<bean class="org.springframework.http.converter.StringHttpMessageConverter" />
+		<bean
+			class="org.springframework.http.converter.xml.XmlAwareFormHttpMessageConverter" />
+
+		<bean
+			class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />
+	</util:list>-->
 </beans>
